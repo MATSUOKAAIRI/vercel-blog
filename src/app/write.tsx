@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from 'react';
-import clsx from 'clsx';
 
 export default function Write() {
     const [title, setTitle] = useState('');
@@ -30,10 +29,7 @@ export default function Write() {
                         id="title" 
                         value={title} 
                         onChange={handleTitleChange} 
-                        className={clsx(
-                            'mt-3 block w-full rounded-lg border-none bg-white/5 py-1.5 px-3 text-sm/6 text-white',
-                            'focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25'
-                        )}
+                        
                     />
                 </div>
                 <div>
@@ -42,10 +38,6 @@ export default function Write() {
                         id="content" 
                         value={content} 
                         onChange={handleContentChange} 
-                        className={clsx(
-                            'mt-3 block w-full rounded-lg border-none bg-white/5 py-1.5 px-3 text-sm/6 text-white',
-                            'focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25'
-                        )}
                     />
                 </div>
                 <button 
