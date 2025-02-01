@@ -20,7 +20,9 @@ export default function Write() {
     };
     return (
         <div>
-            <h1>記入してください</h1>
+            <h1>記入してください
+                ※保存されません。
+            </h1>
             <form onSubmit={handleSubmit}>
             <div>
                     <label htmlFor="title">タイトル</label>
