@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import Write from "./write";
+import Write from "../components/write";
 
 export const metadata: Metadata = {
   title: "rii_blog",
