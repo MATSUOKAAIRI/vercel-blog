@@ -1,7 +1,10 @@
 "use client";
 import React, { useState } from 'react';
+import Context from './context';
+
 
 export default function Write() {
+
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
