@@ -8,13 +8,16 @@ export default function DisplayBlog() {
     if (!blogContext) {
         return null;
     }
-
-    const { title, content } = blogContext;
+    const { blogs } = blogContext;
 
     return (
         <div>
-            <h2>{title}</h2>
-            <p>{content}</p>
+            {blogs.map((blog, index) => (
+                <article key={index}>
+                    <h2>{blog.title}</h2>
+                    <p>{blog.content}</p>
+                </article>
+            ))}
         </div>
     );
 }

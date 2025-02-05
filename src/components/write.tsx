@@ -1,16 +1,18 @@
 "use client";
-import React, { useContext } from 'react';
+import React, { useContext, useState} from 'react';
 import { BlogContext } from './context';
 
 
 export default function Write() {
     const blogContext = useContext(BlogContext);
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
 
     if (!blogContext) {
         return null;
     }
 
-    const { title, content, setTitle, setContent } = blogContext;
+    const { addBlog } = blogContext;
 
     const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(e.target.value);
@@ -21,6 +23,7 @@ export default function Write() {
     };
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        addBlog({ title, content });
         setTitle('');
         setContent('');
     };

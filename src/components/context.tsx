@@ -1,21 +1,27 @@
 "use client";
 import React, { createContext, useState, ReactNode } from 'react';
 
-interface BlogContextType {
+interface Blog {
     title: string;
-    content: string;
-    setTitle: (title: string) => void;
-    setContent: (content: string) => void;
-}
+    content: string;}
+    
+interface BlogContextType {
+    blogs: Blog[];
+    addBlog: (blog: Blog) => void;
+    }
 
 export const BlogContext = createContext<BlogContextType | undefined>(undefined);
 
 export const BlogProvider = ({ children }: { children: ReactNode }) => {
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
+    const [blogs, setBlogs] = useState<Blog[]>([]);
+
+    const addBlog = (blog: Blog) => {
+        setBlogs((prevBlogs) => [...prevBlogs, blog]);
+    };
+
 
     return (
-        <BlogContext.Provider value={{ title, content, setTitle, setContent }}>
+        <BlogContext.Provider value={{ blogs, addBlog }}>
             {children}
         </BlogContext.Provider>
     );
