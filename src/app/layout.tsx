@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import Write from "../components/write";
+import { BlogProvider } from '@/components/context';
 
 export const metadata: Metadata = {
   title: "rii_blog",
@@ -17,10 +17,11 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>
+      <BlogProvider>
         <Header/>
-        <Write/>
         {children}
         <Footer/>
+        </BlogProvider>
       </body>
     </html>
   );

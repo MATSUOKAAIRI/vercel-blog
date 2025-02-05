@@ -1,13 +1,16 @@
 "use client";
-import React, { useState } from 'react';
-import Context from './context';
+import React, { useContext } from 'react';
+import { BlogContext } from './context';
 
 
 export default function Write() {
+    const blogContext = useContext(BlogContext);
 
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
+    if (!blogContext) {
+        return null;
+    }
 
+    const { title, content, setTitle, setContent } = blogContext;
 
     const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(e.target.value);
@@ -47,7 +50,6 @@ export default function Write() {
                 </div>
                 <button 
                     type="submit"
-                    className="inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white"
                 >
                     投稿
                 </button>
