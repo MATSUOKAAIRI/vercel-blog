@@ -19,3 +19,7 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+.context-container {
+    border-bottom: 1px solid #000; /* 下線を引く */
+    padding-bottom: 10px; /* 下線とコンテンツの間にスペースを追加 */
+}

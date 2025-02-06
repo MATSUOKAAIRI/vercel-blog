@@ -22,7 +22,9 @@ export const BlogProvider = ({ children }: { children: ReactNode }) => {
 
     return (
         <BlogContext.Provider value={{ blogs, addBlog }}>
-            {children}
+            <div className="context-container">
+                {children}
+            </div>
         </BlogContext.Provider>
     );
 };
